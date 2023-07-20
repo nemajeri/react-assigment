@@ -1,7 +1,7 @@
 import { AgGridReact } from 'ag-grid-react';
 import { useState, useCallback } from 'react';
 import fetchData from './utils/api';
-import { TEST_ENVIRONMENT } from './utils/constants';
+import Environment from './utils/enums';
 import { convertDate, firstLetterUppercase } from './utils/helpers';
 import { Ticker, Column } from './utils/interfaces';
 
@@ -41,7 +41,16 @@ const App = () => {
   }, []);
 
   return (
-    <div className='ag-theme-alpine' style={{ width: '90%', height: '80vh', marginLeft: 'auto', marginRight: 'auto', marginTop: '80px' }}>
+    <div
+      className='ag-theme-alpine'
+      style={{
+        width: '90%',
+        height: '80vh',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: '80px',
+      }}
+    >
       {loading && (
         <div className='overlay'>
           <div className='spinner'></div>
@@ -53,7 +62,7 @@ const App = () => {
         columnDefs={columnDefs}
         pagination
         suppressNoRowsOverlay
-        suppressColumnVirtualisation={process.env.NODE_ENV === TEST_ENVIRONMENT}
+        suppressColumnVirtualisation={process.env.NODE_ENV === Environment.Test}
       />
     </div>
   );
