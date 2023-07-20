@@ -41,7 +41,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className='ag-theme-alpine' style={{ width: '100%', height: 1050 }}>
+    <div className='ag-theme-alpine' style={{ width: '60%', height: '80vh', marginLeft: 'auto', marginRight: 'auto', marginTop: '80px' }}>
       {loading && (
         <div className='overlay'>
           <div className='spinner'></div>
