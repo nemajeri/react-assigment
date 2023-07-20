@@ -23,7 +23,7 @@ export interface Ticker {
 }
 
 export interface Column {
-    headerName: string;
-    field: string;
-    sortable: boolean;
+  headerName: string;
+  field: string;
+  sortable: boolean;
 }

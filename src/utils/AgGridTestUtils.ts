@@ -12,23 +12,30 @@ const waitForDataToHaveLoaded = (): Promise<void> => {
   });
 };
 
-const columnNamed = (cellName: string) : string => {
+const columnNamed = (cellName: string): string => {
   return `.ag-header-cell[col-id="${cellName}"]`;
 };
 
 const getRowCellNamed = (rowId: number, colIndex: number): Element | null => {
-    return document.querySelector(`.ag-row[row-id="${rowId}"] .ag-cell[aria-colindex="${colIndex}"]`);
-  };
+  return document.querySelector(
+    `.ag-row[row-id="${rowId}"] .ag-cell[aria-colindex="${colIndex}"]`
+  );
+};
 
-  const getCellValue = (cell: Element | null): string | undefined | null => {
-    return cell?.textContent;
-  };
+const getCellValue = (cell: Element | null): string | undefined | null => {
+  return cell?.textContent;
+};
 
-  const getNamedCellsWithValues = (colIndex: number, cellValue: string) : Element[] => {
-    const cells = Array.from(document.querySelectorAll(`.ag-cell[aria-colindex="${colIndex}"]`));
-  
-    return cells.filter((cell) => getCellValue(cell) == cellValue);
-  };
+const getNamedCellsWithValues = (
+  colIndex: number,
+  cellValue: string
+): Element[] => {
+  const cells = Array.from(
+    document.querySelectorAll(`.ag-cell[aria-colindex="${colIndex}"]`)
+  );
+
+  return cells.filter((cell) => getCellValue(cell) == cellValue);
+};
 
 export {
   waitForGridToBeInTheDOM,
